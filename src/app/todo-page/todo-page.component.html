@@ -1,0 +1,17 @@
+<div class="header">
+  <h2 style="margin:5px">My To Do List</h2>
+  <input type="text" [(ngModel)]="newTask" placeholder="Title..." />
+  <span class="addBtn" (click)="addTask()">Add</span>
+</div>
+
+<ul>
+  <!-- 以for列出 -->
+  <li
+    *ngFor="let task of tasks; let i = index"
+    [class.checked]="task.checked"
+    (click)="toggleChecked(task)"
+  >
+    {{ task.title }}
+    <span class="close" (click)="removeTask(i)">×</span>
+  </li>
+</ul>
